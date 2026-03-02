@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Engineering Learning Hub</title>
+<link rel="stylesheet" href="mm2.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- AUTH SECTION -->
+<section id="authSection" class="auth-container">
+
+  <div class="auth-box">
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="active-tab" onclick="switchAuth('login')">Login</button>
+      <button id="registerTab" onclick="switchAuth('register')">Create Account</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="loginForm" class="auth-form active-form">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email">
+      <input type="password" id="loginPassword" placeholder="Password">
+      <button onclick="loginUser()">Login</button>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="registerForm" class="auth-form">
+      <h2>Create Account</h2>
+      <input type="text" id="regName" placeholder="Full Name">
+      <input type="email" id="regEmail" placeholder="Email">
+      <input type="password" id="regPassword" placeholder="Password">
+      <button onclick="registerUser()">Sign Up</button>
+    </div>
+
+  </div>
+
+</section>
+<header>
+  <div class="navbar">
+    <div class="logo">AI Engineering Hub</div>
+
+    <div class="nav-links">
+      <button onclick="showPage('home')">Home</button>
+      <button onclick="showPage('subjects')">Subjects</button>
+      <button onclick="showPage('quiz')">AI Quiz</button>
+      <button onclick="showPage('dashboard')">Dashboard</button>
+      <button onclick="showPage('assistant')">AI Assistant</button>
+    </div>
+
+    <div class="user-section" id="userSection" style="display:none;">
+      <div class="profile" onclick="toggleDropdown()">
+        <div class="avatar" id="userAvatar">R</div>
+      </div>
+
+      <div class="dropdown" id="profileDropdown">
+        <p id="profileName"></p>
+        <p id="profileEmail"></p>
+        <button onclick="logoutUser()">Logout</button>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<section id="home" class="page active">
+  <h1 id="heroTitle">Empowering Engineering Students with AI</h1>
+  <p id="heroText">
+    Practice, track performance and learn smarter with AI-powered tools.
+  </p>
+  <button onclick="showPage('subjects')">Start Learning</button>
+</section>
+<section id="subjects" class="page">
+
+  <h2>Select Your Current Study</h2>
+
+  <button onclick="showEducationForm()" class="join-btn">
+    Join Now
+  </button>
+
+  <div id="educationForm" class="edu-form" style="display:none;">
+    <select id="educationLevel">
+      <option value="">Select</option>
+      <option>1st Class</option>
+      <option>2nd Class</option>
+      <option>3rd Class</option>
+      <option>4th Class</option>
+      <option>5th Class</option>
+      <option>6th Class</option>
+      <option>7th Class</option>
+      <option>8th Class</option>
+      <option>9th Class</option>
+      <option>10th Class</option>
+      <option>+1</option>
+      <option>+2</option>
+      <option>Undergraduate</option>
+      <option>Postgraduate</option>
+    </select>
+
+    <button onclick="submitEducation()">Submit</button>
+  </div>
+  <!-- ? AREA OF INTEREST FORM -->
+<div id="interestForm" class="edu-form" style="display:none;">
+  <h3>Select Area of Interest</h3>
+
+  <select id="interestChoice">
+    <option value="">Select Interest</option>
+    <option value="Maths">Maths / Engineering (JEE)</option>
+    <option value="Science">Science / Medical (BiPC / NEET)</option>
+    <option value="General">General Learning</option>
+  </select>
+
+  <button onclick="submitInterest()">Continue</button>
+</div>
+
+  <!-- ? ADD FROM HERE -->
+
+  <div id="contentChoice" style="display:none; margin-top:20px;">
+    <h3>What type of content do you want?</h3>
+    <button onclick="showVideos()">Video</button>
+    <button onclick="showMaterial()">Study Material</button>
+  </div>
+
+  <!-- <div id="contentOutput" style="margin-top:20px;"></div>
+
+  <? END HERE -->
+<!-- <div id="nextQuizBtn" style="display:none; margin-top:20px;"> -->
+  <!-- <button onclick="goToQuiz()">Next ? Take Quiz</button> -->
+</div>
+</section>
+
+<!-- NEW CONTENT PAGE -->
+<section id="contentPage" class="page">
+  <h2 id="contentTitle"></h2>
+
+  <div id="contentPageOutput"></div>
+
+  <div style="margin-top:20px;">
+    <button onclick="goToQuiz()">Next ? Take Quiz</button>
+  </div>
+</section>
+<section id="quiz" class="page">
+  <h2>AI Quiz Generator</h2>
+
+  <!-- <select id="quizTopic">
+    <option>Data Structures</option>
+    <option>DBMS</option>
+    <option>Operating Systems</option>
+  </select> -->
+
+  <select id="quizDifficulty">
+    <option>Easy</option>
+    <option>Medium</option>
+    <option>Hard</option>
+  </select>
+
+  <button onclick="generateQuiz()">Generate Quiz</button>
+
+  <div id="quizOutput" class="info-card"></div>
+  <div id="feedbackSection" style="display:none;">
+<canvas id="resultChart" width="300" height="200"></canvas>
+  <h3>How was this quiz?</h3>
+
+  <!-- <select id="userFeedback">
+    <option value="">Select Feedback</option>
+    <option value="positive">Easy / Good</option>
+    <option value="negative">Too Hard</option>
+  </select> -->
+  <select id="userFeedback">
+  <option value="">Select Feedback</option>
+  <option value="Difficult">Difficult</option>
+  <option value="Neutral">Neutral</option>
+  <option value="Easy">Easy</option>
+</select>
+
+  <button onclick="submitFeedback()">Submit Feedback</button>
+
+</div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page">
+
+  <div class="dashboard-container">
+
+    <h2 class="dashboard-title">
+      ?? AI Performance Dashboard
+    </h2>
+
+    <!-- STATS CARDS -->
+    <div class="dashboard-cards">
+
+      <div class="stat-card">
+        <h3>Total Quizzes</h3>
+        <p id="totalQuiz">0</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Average Score</h3>
+        <p id="avgScore">0%</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Weak Area</h3>
+        <p id="weakArea">-</p>
+      </div>
+
+    </div>
+
+    <!-- AI ANALYSIS -->
+    <div class="analysis-box">
+      <button class="analyze-btn"
+        onclick="analyzePerformance()">
+        ?? Analyze with AI
+      </button>
+
+      <div id="analysisResult"></div>
+    </div>
+
+    <!-- ADAPTIVE WORK -->
+    <div id="workArea" class="analysis-box">
+      <h3>Adaptive Learning Action</h3>
+      <p>No recommendation yet.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- AI ASSISTANT -->
+<section id="assistant" class="page">
+  <h2>AI Doubt Solver</h2>
+
+  <textarea id="userQuestion" placeholder="Ask your engineering doubt..."></textarea>
+  <button onclick="askAI()">Ask AI</button>
+
+  <div id="aiResponse" class="info-card"></div>
+</section>
+
+<script src="mm2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
