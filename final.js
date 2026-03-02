@@ -41,7 +41,7 @@ const quizBank = {
 ],
 
 "3rd Class":[
-{q:"10 ÷ 2 = ?",options:["2","5","10","8"],answer:"5"},
+{q:"10 Ã· 2 = ?",options:["2","5","10","8"],answer:"5"},
 {q:"Largest planet?",options:["Mars","Earth","Jupiter","Moon"],answer:"Jupiter"},
 {q:"Plants need?",options:["Plastic","Water","Smoke","Iron"],answer:"Water"}
 ],
@@ -55,7 +55,7 @@ const quizBank = {
 "5th Class":[
 {q:"15 - 5 = ?",options:["5","10","15","20"],answer:"10"},
 {q:"Earth is a?",options:["Star","Planet","Moon","Comet"],answer:"Planet"},
-{q:"Water freezes at?",options:["0°C","50°C","100°C","10°C"],answer:"0°C"}
+{q:"Water freezes at?",options:["0Â°C","50Â°C","100Â°C","10Â°C"],answer:"0Â°C"}
 ],
 
 "6th Class":[
@@ -65,13 +65,13 @@ const quizBank = {
 ],
 
 "7th Class":[
-{q:"7 × 6 = ?",options:["36","42","48","56"],answer:"42"},
+{q:"7 Ã— 6 = ?",options:["36","42","48","56"],answer:"42"},
 {q:"Gas needed for breathing?",options:["Oxygen","Nitrogen","CO2","Helium"],answer:"Oxygen"},
 {q:"India capital?",options:["Delhi","Mumbai","Chennai","Kolkata"],answer:"Delhi"}
 ],
 
 "8th Class":[
-{q:"Speed = ?",options:["Distance/Time","Mass×Force","Work×Time","None"],answer:"Distance/Time"},
+{q:"Speed = ?",options:["Distance/Time","MassÃ—Force","WorkÃ—Time","None"],answer:"Distance/Time"},
 {q:"Chemical symbol O?",options:["Gold","Oxygen","Iron","Silver"],answer:"Oxygen"},
 {q:"Triangle sides?",options:["2","3","4","5"],answer:"3"}
 ],
@@ -89,14 +89,14 @@ const quizBank = {
 ],
 
 "+1":[
-{q:"Derivative of x²?",options:["x","2x","x²","1"],answer:"2x"},
+{q:"Derivative of xÂ²?",options:["x","2x","xÂ²","1"],answer:"2x"},
 {q:"Unit of Force?",options:["Newton","Joule","Watt","Pascal"],answer:"Newton"},
 {q:"pH neutral value?",options:["5","7","9","1"],answer:"7"}
 ],
 
 "+2":[
-{q:"Integration of x?",options:["x²/2","x","2x","1"],answer:"x²/2"},
-{q:"Acceleration unit?",options:["m/s²","m","kg","N"],answer:"m/s²"},
+{q:"Integration of x?",options:["xÂ²/2","x","2x","1"],answer:"xÂ²/2"},
+{q:"Acceleration unit?",options:["m/sÂ²","m","kg","N"],answer:"m/sÂ²"},
 {q:"Avogadro number?",options:["6.02e23","10","100","1"],answer:"6.02e23"}
 ],
 
@@ -149,8 +149,8 @@ function generateQuiz() {
       },
       {
         q: "Water freezes at?",
-        options: ["0°C", "50°C", "100°C", "10°C"],
-        answer: "0°C"
+        options: ["0Â°C", "50Â°C", "100Â°C", "10Â°C"],
+        answer: "0Â°C"
       }
     ];
   }
@@ -175,7 +175,7 @@ function generateQuiz() {
           topic: "Mathematics"
         },
         {
-          q: "15 × 6 = ?",
+          q: "15 Ã— 6 = ?",
           options: ["60", "75", "90", "95"],
           answer: "90",
           topic: "Mathematics"
@@ -188,7 +188,7 @@ function generateQuiz() {
 
       currentQuestions = [
         {
-          q: "Ohm’s Law relates?",
+          q: "Ohmâ€™s Law relates?",
           options: ["V, I, R", "Mass & Force", "Speed & Time", "Heat & Work"],
           answer: "V, I, R",
           topic: "Physics"
@@ -220,8 +220,8 @@ function generateQuiz() {
 
     currentQuestions = [
       {
-        q: "Derivative of x²?",
-        options: ["x", "2x", "x²", "1"],
+        q: "Derivative of xÂ²?",
+        options: ["x", "2x", "xÂ²", "1"],
         answer: "2x"
       },
       {
