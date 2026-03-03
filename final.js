@@ -1,11 +1,12 @@
 // PAGE SWITCHING FUNCTION
 let wrongTopics = [];
-function showPage(pageId) {
-  document.querySelectorAll(".page").forEach(function(page) {
-    page.classList.remove("active");
-  });
 
-  document.getElementById(pageId).classList.add("active");
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
 }
 
 // QUIZ GENERATOR
@@ -28,242 +29,238 @@ let correctAnswers = [];
 //   }
 const quizBank = {
 
-"1st Class":[
-{q:"2 + 1 = ?",options:["1","2","3","4"],answer:"3"},
-{q:"Color of sky?",options:["Blue","Red","Green","Black"],answer:"Blue"},
-{q:"A for?",options:["Apple","Ball","Cat","Dog"],answer:"Apple"}
-],
+    "1st Class": [
+        { q: "2 + 1 = ?", options: ["1", "2", "3", "4"], answer: "3" },
+        { q: "Color of sky?", options: ["Blue", "Red", "Green", "Black"], answer: "Blue" },
+        { q: "A for?", options: ["Apple", "Ball", "Cat", "Dog"], answer: "Apple" }
+    ],
 
-"2nd Class":[
-{q:"5 - 2 = ?",options:["2","3","4","5"],answer:"3"},
-{q:"How many days in week?",options:["5","6","7","8"],answer:"7"},
-{q:"Sun gives?",options:["Water","Light","Stone","Dust"],answer:"Light"}
-],
+    "2nd Class": [
+        { q: "5 - 2 = ?", options: ["2", "3", "4", "5"], answer: "3" },
+        { q: "How many days in week?", options: ["5", "6", "7", "8"], answer: "7" },
+        { q: "Sun gives?", options: ["Water", "Light", "Stone", "Dust"], answer: "Light" }
+    ],
 
-"3rd Class":[
-{q:"10 ÷ 2 = ?",options:["2","5","10","8"],answer:"5"},
-{q:"Largest planet?",options:["Mars","Earth","Jupiter","Moon"],answer:"Jupiter"},
-{q:"Plants need?",options:["Plastic","Water","Smoke","Iron"],answer:"Water"}
-],
+    "3rd Class": [
+        { q: "10 ÷ 2 = ?", options: ["2", "5", "10", "8"], answer: "5" },
+        { q: "Largest planet?", options: ["Mars", "Earth", "Jupiter", "Moon"], answer: "Jupiter" },
+        { q: "Plants need?", options: ["Plastic", "Water", "Smoke", "Iron"], answer: "Water" }
+    ],
 
-"4th Class":[
-{q:"12 + 8 = ?",options:["18","20","22","24"],answer:"20"},
-{q:"Human has how many legs?",options:["1","2","3","4"],answer:"2"},
-{q:"Birds can?",options:["Swim","Fly","Drive","Cook"],answer:"Fly"}
-],
+    "4th Class": [
+        { q: "12 + 8 = ?", options: ["18", "20", "22", "24"], answer: "20" },
+        { q: "Human has how many legs?", options: ["1", "2", "3", "4"], answer: "2" },
+        { q: "Birds can?", options: ["Swim", "Fly", "Drive", "Cook"], answer: "Fly" }
+    ],
 
-"5th Class":[
-{q:"15 - 5 = ?",options:["5","10","15","20"],answer:"10"},
-{q:"Earth is a?",options:["Star","Planet","Moon","Comet"],answer:"Planet"},
-{q:"Water freezes at?",options:["0°C","50°C","100°C","10°C"],answer:"0°C"}
-],
+    "5th Class": [
+        { q: "15 - 5 = ?", options: ["5", "10", "15", "20"], answer: "10" },
+        { q: "Earth is a?", options: ["Star", "Planet", "Moon", "Comet"], answer: "Planet" },
+        { q: "Water freezes at?", options: ["0°C", "50°C", "100°C", "10°C"], answer: "0°C" }
+    ],
 
-"6th Class":[
-{q:"Sun rises in?",options:["East","West","North","South"],answer:"East"},
-{q:"Largest animal?",options:["Dog","Elephant","Blue Whale","Cat"],answer:"Blue Whale"},
-{q:"Water formula?",options:["CO2","H2O","O2","NaCl"],answer:"H2O"}
-],
+    "6th Class": [
+        { q: "Sun rises in?", options: ["East", "West", "North", "South"], answer: "East" },
+        { q: "Largest animal?", options: ["Dog", "Elephant", "Blue Whale", "Cat"], answer: "Blue Whale" },
+        { q: "Water formula?", options: ["CO2", "H2O", "O2", "NaCl"], answer: "H2O" }
+    ],
 
-"7th Class":[
-{q:"7 × 6 = ?",options:["36","42","48","56"],answer:"42"},
-{q:"Gas needed for breathing?",options:["Oxygen","Nitrogen","CO2","Helium"],answer:"Oxygen"},
-{q:"India capital?",options:["Delhi","Mumbai","Chennai","Kolkata"],answer:"Delhi"}
-],
+    "7th Class": [
+        { q: "7 × 6 = ?", options: ["36", "42", "48", "56"], answer: "42" },
+        { q: "Gas needed for breathing?", options: ["Oxygen", "Nitrogen", "CO2", "Helium"], answer: "Oxygen" },
+        { q: "India capital?", options: ["Delhi", "Mumbai", "Chennai", "Kolkata"], answer: "Delhi" }
+    ],
 
-"8th Class":[
-{q:"Speed = ?",options:["Distance/Time","Mass×Force","Work×Time","None"],answer:"Distance/Time"},
-{q:"Chemical symbol O?",options:["Gold","Oxygen","Iron","Silver"],answer:"Oxygen"},
-{q:"Triangle sides?",options:["2","3","4","5"],answer:"3"}
-],
+    "8th Class": [
+        { q: "Speed = ?", options: ["Distance/Time", "Mass×Force", "Work×Time", "None"], answer: "Distance/Time" },
+        { q: "Chemical symbol O?", options: ["Gold", "Oxygen", "Iron", "Silver"], answer: "Oxygen" },
+        { q: "Triangle sides?", options: ["2", "3", "4", "5"], answer: "3" }
+    ],
 
-"9th Class":[
-{q:"Newton unit of?",options:["Force","Speed","Mass","Energy"],answer:"Force"},
-{q:"Cell discovered by?",options:["Newton","Hooke","Einstein","Darwin"],answer:"Hooke"},
-{q:"SI unit of length?",options:["Meter","Kg","Second","Volt"],answer:"Meter"}
-],
+    "9th Class": [
+        { q: "Newton unit of?", options: ["Force", "Speed", "Mass", "Energy"], answer: "Force" },
+        { q: "Cell discovered by?", options: ["Newton", "Hooke", "Einstein", "Darwin"], answer: "Hooke" },
+        { q: "SI unit of length?", options: ["Meter", "Kg", "Second", "Volt"], answer: "Meter" }
+    ],
 
-"10th Class":[
-{q:"Ohm's Law?",options:["V=IR","F=ma","E=mc2","P=VI"],answer:"V=IR"},
-{q:"?144 ?",options:["10","11","12","13"],answer:"12"},
-{q:"Na symbol?",options:["Iron","Sodium","Gold","Silver"],answer:"Sodium"}
-],
+    "10th Class": [
+        { q: "Ohm's Law?", options: ["V=IR", "F=ma", "E=mc2", "P=VI"], answer: "V=IR" },
+        { q: "√144 ?", options: ["10", "11", "12", "13"], answer: "12" },
+        { q: "Na symbol?", options: ["Iron", "Sodium", "Gold", "Silver"], answer: "Sodium" }
+    ],
 
-"+1":[
-{q:"Derivative of x²?",options:["x","2x","x²","1"],answer:"2x"},
-{q:"Unit of Force?",options:["Newton","Joule","Watt","Pascal"],answer:"Newton"},
-{q:"pH neutral value?",options:["5","7","9","1"],answer:"7"}
-],
+    "+1": [
+        { q: "Derivative of x²?", options: ["x", "2x", "x²", "1"], answer: "2x" },
+        { q: "Unit of Force?", options: ["Newton", "Joule", "Watt", "Pascal"], answer: "Newton" },
+        { q: "pH neutral value?", options: ["5", "7", "9", "1"], answer: "7" }
+    ],
 
-"+2":[
-{q:"Integration of x?",options:["x²/2","x","2x","1"],answer:"x²/2"},
-{q:"Acceleration unit?",options:["m/s²","m","kg","N"],answer:"m/s²"},
-{q:"Avogadro number?",options:["6.02e23","10","100","1"],answer:"6.02e23"}
-],
+    "+2": [
+        { q: "Integration of x?", options: ["x²/2", "x", "2x", "1"], answer: "x²/2" },
+        { q: "Acceleration unit?", options: ["m/s²", "m", "kg", "N"], answer: "m/s²" },
+        { q: "Avogadro number?", options: ["6.02e23", "10", "100", "1"], answer: "6.02e23" }
+    ],
 
-// "Undergraduate":[
-// {q:"Stack follows?",options:["FIFO","LIFO","Random","Priority"],answer:"LIFO",topic=stack},
-// {q:"SQL used for?",options:["Database","AI","OS","Network"],answer:"Database"},
-// {q:"OS manages?",options:["CPU","Memory","Process","All"],answer:"All"}
-// ],
-"Undergraduate":[
-{q:"Stack follows?",options:["FIFO","LIFO","Random","Priority"],answer:"LIFO",topic:"Stack"},
-{q:"SQL used for?",options:["Database","AI","OS","Network"],answer:"Database",topic:"DBMS"},
-{q:"OS manages?",options:["CPU","Memory","Process","All"],answer:"All",topic:"Operating System"}
-],
-"Postgraduate":[
-{q:"AI stands for?",options:["Artificial Intelligence","Auto Input","Advanced Internet","None"],answer:"Artificial Intelligence"},
-{q:"Machine Learning is subset of?",options:["AI","DBMS","OS","Networks"],answer:"AI"},
-{q:"Neural Network inspired from?",options:["Human Brain","CPU","Robot","Cloud"],answer:"Human Brain"}
-]
+    // "Undergraduate":[
+    // {q:"Stack follows?",options:["FIFO","LIFO","Random","Priority"],answer:"LIFO",topic=stack},
+    // {q:"SQL used for?",options:["Database","AI","OS","Network"],answer:"Database"},
+    // {q:"OS manages?",options:["CPU","Memory","Process","All"],answer:"All"}
+    // ],
+    "Undergraduate": [
+        { q: "Stack follows?", options: ["FIFO", "LIFO", "Random", "Priority"], answer: "LIFO", topic: "Stack" },
+        { q: "SQL used for?", options: ["Database", "AI", "OS", "Network"], answer: "Database", topic: "DBMS" },
+        { q: "OS manages?", options: ["CPU", "Memory", "Process", "All"], answer: "All", topic: "Operating System" }
+    ],
+    "Postgraduate": [
+        { q: "AI stands for?", options: ["Artificial Intelligence", "Auto Input", "Advanced Internet", "None"], answer: "Artificial Intelligence" },
+        { q: "Machine Learning is subset of?", options: ["AI", "DBMS", "OS", "Networks"], answer: "AI" },
+        { q: "Neural Network inspired from?", options: ["Human Brain", "CPU", "Robot", "Cloud"], answer: "Human Brain" }
+    ]
 
 };
+
 function generateQuiz() {
 
-  const userClass = localStorage.getItem("userClass");
-  const userInterest = localStorage.getItem("userInterest");
+    const userClass = localStorage.getItem("userClass");
+    const userInterest = localStorage.getItem("userInterest");
 
-  const container = document.getElementById("quizOutput");
+    const container = document.getElementById("quizOutput");
 
-  container.innerHTML = "";
+    container.innerHTML = "";
 
-  if (!userClass) {
-    alert("Please select class in Subjects first!");
-    return;
-  }
+    if (!userClass) {
+        alert("Please select class in Subjects first!");
+        return;
+    }
 
-  container.innerHTML = `<h3>Quiz for ${userClass}</h3>`;
+    container.innerHTML = `<h3>Quiz for ${userClass}</h3>`;
 
-  /* ================= 6TH CLASS ================= */
-  if (userClass === "6th Class") {
+    /* ================= 6TH CLASS ================= */
+    if (userClass === "6th Class") {
 
-    currentQuestions = [
-      {
-        q: "Which planet is known as Red Planet?",
-        options: ["Earth", "Mars", "Venus", "Jupiter"],
-        answer: "Mars"
-      },
-      {
-        q: "5 + 7 = ?",
-        options: ["10", "11", "12", "13"],
-        answer: "12"
-      },
-      {
-        q: "Water freezes at?",
-        options: ["0°C", "50°C", "100°C", "10°C"],
-        answer: "0°C"
-      }
-    ];
-  }
+        currentQuestions = [{
+                q: "Which planet is known as Red Planet?",
+                options: ["Earth", "Mars", "Venus", "Jupiter"],
+                answer: "Mars"
+            },
+            {
+                q: "5 + 7 = ?",
+                options: ["10", "11", "12", "13"],
+                answer: "12"
+            },
+            {
+                q: "Water freezes at?",
+                options: ["0°C", "50°C", "100°C", "10°C"],
+                answer: "0°C"
+            }
+        ];
+    }
 
-  /* ================= 10TH CLASS ================= */
-  else if (userClass === "10th Class") {
+    /* ================= 10TH CLASS ================= */
+    else if (userClass === "10th Class") {
 
-    /* ---- MATHS QUIZ ---- */
-    if (userInterest === "Maths") {
+        /* ---- MATHS QUIZ ---- */
+        if (userInterest === "Maths") {
 
-      currentQuestions = [
-        {
-          q: "Quadratic equation degree?",
-          options: ["1", "2", "3", "4"],
-          answer: "2",
-          topic: "Mathematics"
-        },
-        {
-          q: "Value of ?144 ?",
-          options: ["10", "11", "12", "14"],
-          answer: "12",
-          topic: "Mathematics"
-        },
-        {
-          q: "15 × 6 = ?",
-          options: ["60", "75", "90", "95"],
-          answer: "90",
-          topic: "Mathematics"
+            currentQuestions = [{
+                    q: "Quadratic equation degree?",
+                    options: ["1", "2", "3", "4"],
+                    answer: "2",
+                    topic: "Mathematics"
+                },
+                {
+                    q: "Value of √144 ?",
+                    options: ["10", "11", "12", "14"],
+                    answer: "12",
+                    topic: "Mathematics"
+                },
+                {
+                    q: "15 × 6 = ?",
+                    options: ["60", "75", "90", "95"],
+                    answer: "90",
+                    topic: "Mathematics"
+                }
+            ];
         }
-      ];
-    }
 
-    /* ---- SCIENCE QUIZ ---- */
-    else if (userInterest === "Science") {
+        /* ---- SCIENCE QUIZ ---- */
+        else if (userInterest === "Science") {
 
-      currentQuestions = [
-        {
-          q: "Ohm’s Law relates?",
-          options: ["V, I, R", "Mass & Force", "Speed & Time", "Heat & Work"],
-          answer: "V, I, R",
-          topic: "Physics"
-        },
-        {
-          q: "Chemical symbol of Sodium?",
-          options: ["So", "Na", "S", "Sn"],
-          answer: "Na",
-          topic: "Chemistry"
-        },
-        {
-          q: "Unit of Force?",
-          options: ["Newton", "Joule", "Watt", "Pascal"],
-          answer: "Newton",
-          topic: "Physics"
+            currentQuestions = [{
+                    q: "Ohm’s Law relates?",
+                    options: ["V, I, R", "Mass & Force", "Speed & Time", "Heat & Work"],
+                    answer: "V, I, R",
+                    topic: "Physics"
+                },
+                {
+                    q: "Chemical symbol of Sodium?",
+                    options: ["So", "Na", "S", "Sn"],
+                    answer: "Na",
+                    topic: "Chemistry"
+                },
+                {
+                    q: "Unit of Force?",
+                    options: ["Newton", "Joule", "Watt", "Pascal"],
+                    answer: "Newton",
+                    topic: "Physics"
+                }
+            ];
         }
-      ];
+
+        /* ---- DEFAULT (IF NO INTEREST) ---- */
+        else {
+            alert("Please select Interest first!");
+            return;
+        }
     }
 
-    /* ---- DEFAULT (IF NO INTEREST) ---- */
-    else {
-      alert("Please select Interest first!");
-      return;
+    /* ================= +1 / +2 ================= */
+    else if (userClass === "+1" || userClass === "+2") {
+
+        currentQuestions = [{
+                q: "Derivative of x²?",
+                options: ["x", "2x", "x²", "1"],
+                answer: "2x"
+            },
+            {
+                q: "Unit of Force?",
+                options: ["Newton", "Joule", "Watt", "Pascal"],
+                answer: "Newton"
+            },
+            {
+                q: "pH of neutral solution?",
+                options: ["5", "7", "9", "1"],
+                answer: "7"
+            }
+        ];
     }
-  }
 
-  /* ================= +1 / +2 ================= */
-  else if (userClass === "+1" || userClass === "+2") {
+    /* ================= UNDERGRAD ================= */
+    else if (userClass === "Undergraduate") {
 
-    currentQuestions = [
-      {
-        q: "Derivative of x²?",
-        options: ["x", "2x", "x²", "1"],
-        answer: "2x"
-      },
-      {
-        q: "Unit of Force?",
-        options: ["Newton", "Joule", "Watt", "Pascal"],
-        answer: "Newton"
-      },
-      {
-        q: "pH of neutral solution?",
-        options: ["5", "7", "9", "1"],
-        answer: "7"
-      }
-    ];
-  }
+        currentQuestions = [{
+                q: "Stack follows?",
+                options: ["FIFO", "LIFO", "Random", "Priority"],
+                answer: "LIFO"
+            },
+            {
+                q: "SQL used for?",
+                options: ["Database", "Networking", "AI", "OS"],
+                answer: "Database"
+            },
+            {
+                q: "OS manages?",
+                options: ["Hardware", "Memory", "Processes", "All"],
+                answer: "All"
+            }
+        ];
+    }
 
-  /* ================= UNDERGRAD ================= */
-  else if (userClass === "Undergraduate") {
+    /* ================= DISPLAY ================= */
 
-    currentQuestions = [
-      {
-        q: "Stack follows?",
-        options: ["FIFO", "LIFO", "Random", "Priority"],
-        answer: "LIFO"
-      },
-      {
-        q: "SQL used for?",
-        options: ["Database", "Networking", "AI", "OS"],
-        answer: "Database"
-      },
-      {
-        q: "OS manages?",
-        options: ["Hardware", "Memory", "Processes", "All"],
-        answer: "All"
-      }
-    ];
-  }
+    currentQuestions.forEach((item, index) => {
 
-  /* ================= DISPLAY ================= */
-
-  currentQuestions.forEach((item, index) => {
-
-    container.innerHTML += `
+                container.innerHTML += `
       <div style="margin-bottom:15px;">
         <p><strong>Q${index + 1}:</strong> ${item.q}</p>
 
@@ -323,7 +320,7 @@ else {
     `<h3>Your Score: ${percentage}%</h3>`;
 
   window.lastScore = percentage;
-  // ? UPDATE WEAK AREA IN DASHBOARD
+  // ✅ UPDATE WEAK AREA IN DASHBOARD
 if (wrongTopics.length > 0) {
 
   const weak =
@@ -359,7 +356,7 @@ function analyzePerformance() {
 
   // If no wrong topics
   if (!wrongTopics || wrongTopics.length === 0) {
-    suggestion = "? Great performance! No major weak areas detected.";
+    suggestion = "✅ Great performance! No major weak areas detected.";
   } 
   else {
 
@@ -374,7 +371,7 @@ function analyzePerformance() {
     const selectedWeakTopics = shuffledTopics.slice(0, 2);
 
     suggestion =
-      "?? Focus more on: <strong>" +
+      "📚 Focus more on: <strong>" +
       selectedWeakTopics.join(", ") +
       "</strong>";
   }
@@ -416,7 +413,7 @@ async function askAI() {
       "Error connecting to AI server.";
   }
 }
-// ? ADAPTIVE WORK AREA LOGIC
+// ✅ ADAPTIVE WORK AREA LOGIC
 const matrix = {
   "Difficult": {
     "Weak": "Revise basic concepts.",
@@ -473,14 +470,14 @@ function submitFeedback() {
     return;
   }
 
-  // ? SAVE DATA
+  // ✅ SAVE DATA
   localStorage.setItem("quizScore", score);
   localStorage.setItem("userFeedback", feedback);
 
-  // ? UPDATE WORK AREA
+  // ✅ UPDATE WORK AREA
   updateWorkArea(score, feedback);
 
-  // ? AUTO DASHBOARD
+  // ✅ AUTO DASHBOARD
   setTimeout(() => {
     showPage("dashboard");
   }, 1500);
@@ -639,7 +636,7 @@ function submitEducation() {
 
   document.getElementById("educationForm").style.display = "none";
 
-  // ? NEW STEP
+  // ✅ NEW STEP
   document.getElementById("interestForm").style.display = "block";
 }
 function submitInterest() {
@@ -702,7 +699,7 @@ function showContentChoice() {
 //         <iframe width="300" height="200" src="${videos[1]}" allowfullscreen></iframe>
 //     `;
 
-//     showPage("contentPage"); // ? open new page
+//     showPage("contentPage"); // ✅ open new page
 // }
 function showVideos() {
 
@@ -714,7 +711,7 @@ function showVideos() {
   if (userInterest === "Maths") {
 
     videos = `
-      <h2>?? Maths Learning Videos</h2>
+      <h2>📐 Maths Learning Videos</h2>
 
       <div class="video-container">
 
@@ -740,7 +737,7 @@ function showVideos() {
   else if (userInterest === "Science") {
 
     videos = `
-      <h2>?? Science Learning Videos</h2>
+      <h2>🔬 Science Learning Videos</h2>
 
       <div class="video-container">
 
@@ -774,12 +771,12 @@ function showVideos() {
 //   if (userClass === "10th Class") {
 
 //     videos = `
-//       <h2>?? Recommended Learning Videos (10th Class)</h2>
+//       <h2>📚 Recommended Learning Videos (10th Class)</h2>
 
 //       <div class="video-container">
 
 //         <div class="video-card">
-//           <h3>?? Maths Concept Learning</h3>
+//           <h3>📐 Maths Concept Learning</h3>
 //           <iframe width="400" height="225"
 //           src="https://www.youtube.com/embed/O6XGRFLXu8E"
 //           frameborder="0" allowfullscreen>
@@ -787,7 +784,7 @@ function showVideos() {
 //         </div>
 
 //         <div class="video-card">
-//           <h3>?? Science Concept Learning</h3>
+//           <h3>🔬 Science Concept Learning</h3>
 //           <iframe width="400" height="225"
 //           src="https://www.youtube.com/embed/kHVAk96r05Y"
 //           frameborder="0" allowfullscreen>
@@ -846,24 +843,24 @@ function showMaterial() {
 
   if (interest === "Maths") {
     material = `
-      <li>?? JEE Mathematics Notes</li>
-      <li>?? Physics Problems</li>
-      <li>?? Advanced Practice</li>
+      <li>📘 JEE Mathematics Notes</li>
+      <li>📘 Physics Problems</li>
+      <li>📘 Advanced Practice</li>
     `;
   }
 
   else if (interest === "Science") {
     material = `
-      <li>?? Biology Notes</li>
-      <li>?? NEET Preparation</li>
-      <li>?? Diagrams Practice</li>
+      <li>📘 Biology Notes</li>
+      <li>📘 NEET Preparation</li>
+      <li>📘 Diagrams Practice</li>
     `;
   }
 
   else {
     material = `
-      <li>?? Basic Study Notes</li>
-      <li>?? Practice Questions</li>
+      <li>📘 Basic Study Notes</li>
+      <li>📘 Practice Questions</li>
     `;
   }
 
@@ -887,13 +884,13 @@ function showMaterial() {
 
 //     document.getElementById("contentPageOutput").innerHTML = `
 //         <ul style="text-align:left; width:300px; margin:auto;">
-//             <li>?? Chapter Notes</li>
-//             <li>?? Important Questions</li>
-//             <li>?? Practice Problems</li>
+//             <li>📘 Chapter Notes</li>
+//             <li>📘 Important Questions</li>
+//             <li>📘 Practice Problems</li>
 //         </ul>
 //     `;
 
-//     showPage("contentPage"); // ? open new page
+//     showPage("contentPage"); // ✅ open new page
 // }
 function showEducationForm() {
     document.getElementById("educationForm").style.display = "block";
@@ -904,7 +901,7 @@ function goToQuiz() {
   generateQuiz();     // auto generate quiz
 
 }
-// ? LOAD ADAPTATION WHEN DASHBOARD OPENS
+// ✅ LOAD ADAPTATION WHEN DASHBOARD OPENS
 window.addEventListener("load", () => {
 
   const score = localStorage.getItem("quizScore");
